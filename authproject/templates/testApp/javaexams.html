@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{% extends 'testApp/base.html'%}
+{%block body_block%}
+
+<form action='/result' method='POST'>{% csrf_token %}
+    <ol>
+        {% for seq in quiz %}
+            <li>{{seq.question}}</li>
+                 <input type='radio' value='{{seq.choice1}}' name='{{seq.question}}' />{{seq.choice1}}<br>
+                 <input type='radio' value='{{seq.choice2}}' name='{{seq.question}}' />{{seq.choice2}}<br>
+                 <input type='radio' value='{{seq.choice3}}' name='{{seq.question}}' />{{seq.choice3}}<br>
+                 <input type='radio' value='{{seq.choice4}}' name='{{seq.question}}' />{{seq.choice4}}<br>
+        {% endfor %}
+    </ol>
+    <input type="submit" class="btn btn-primary btn-large" value="submit" />
+</form>
+
+{%endblock%}

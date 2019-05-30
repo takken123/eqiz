@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+{% extends 'testApp/base.html'%}
+{%block body_block%}
+<form  method="post">
+  {{form.as_p}}
+  {% csrf_token %}
+  <button type="submit" class="btn btn-primary btn-large bounce-red">Login</button>
+</form>
+
+{%endblock%}
